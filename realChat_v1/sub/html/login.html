@@ -1,0 +1,183 @@
+<!--
+Sungjun Hong & Yuseon Kang 
+Date: 2018-05-29
+login.html-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <title>Hong and Kang's Real-chat Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+      <div class="container">
+    <form class="form-signin" action="/login/success" method="post">
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1><i class="fas fa-asterisk fa-spin"></i></h1>
+      <h1 class="h3 mb-3 font-weight-normal">Real-Chat login</h1>
+      <label for="inputText" class="sr-only">ID</label>
+      <input type="text" id="usrid" class="form-control" placeholder="ID" name="id" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pwd" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-danger btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Log in</button>
+    </form>
+    <div class="signup">
+    <a href="/signup">
+        <button class="btn btn-lg btn-danger btn-block"><i class="fas fa-user-plus"></i> Sign up</button>
+        </a>
+    </div>
+</div>
+  </body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body>
+    <div class="greeting">
+        <h1>Welcome to Real-chat</h1>
+        <p>This is temporary form of website for real-chat</p>
+    </div>
+    <div class="loginform">
+        <h1>L O G I N</h1>
+        <form action="/login/success" method="post">
+            <p>
+                <input type="text" placeholder="Input ID" name="id">
+                <input type="password" placeholder="Input Password" name="pwd">
+            </p>
+            <p>
+                <input type="submit" value="LOGIN" class="loginbtn">
+            </p>
+        </form>
+        <a href="/signup">
+            <input type="button" value="SIGNUP" class="signupbtn">
+        </a>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body>
+    <div class="greeting">
+        <h1>Welcome to Real-chat</h1>
+        <p>This is temporary form of website for real-chat</p>
+    </div>
+    <div class="loginform">
+        <h1>L O G I N</h1>
+        <form action="/login/success" method="post">
+            <p>
+                <input type="text" placeholder="Input ID" name="id">
+                <input type="password" placeholder="Input Password" name="pwd">
+            </p>
+            <p>
+                <input type="submit" value="LOGIN" class="loginbtn">
+            </p>
+        </form>
+        <a href="/signup">
+            <input type="button" value="SIGNUP" class="signupbtn">
+        </a>
+    </div>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body>
+    <div class="greeting">
+        <h1>Welcome to Real-chat</h1>
+        <p>This is temporary form of website for real-chat</p>
+    </div>
+    <div class="loginform">
+        <h1>L O G I N</h1>
+        <form action="/login/success" method="post">
+            <p>
+                <input type="text" placeholder="Input ID" name="id">
+                <input type="password" placeholder="Input Password" name="pwd">
+            </p>
+            <p>
+                <input type="submit" value="LOGIN" class="loginbtn">
+            </p>
+        </form>
+        <a href="/signup">
+            <input type="button" value="SIGNUP" class="signupbtn">
+        </a>
+    </div>
+</body>
+</html> —>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body>
+    <div class="greeting">
+        <h1>Welcome to Real-chat</h1>
+        <p>This is temporary form of website for real-chat</p>
+    </div>
+    <div class="loginform">
+        <h1>L O G I N</h1>
+        <form action="/login/success" method="post">
+            <p>
+                <input type="text" placeholder="Input ID" name="id">
+                <input type="password" placeholder="Input Password" name="pwd">
+            </p>
+            <p>
+                <input type="submit" value="LOGIN" class="loginbtn">
+            </p>
+        </form>
+        <a href="/signup">
+            <input type="button" value="SIGNUP" class="signupbtn">
+        </a>
+    </div>
+</body>
+</html> -->

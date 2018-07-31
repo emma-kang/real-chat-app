@@ -1,0 +1,220 @@
+<!--
+Sungjun Hong & Yuseon Kang 
+Date: 2018-05-29
+signup.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <title>Real-Chat Sign Up</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signup.css" rel="stylesheet">
+  </head>
+
+  <body class="text-left">
+    <form action="/signup/success" method="post" name="signup" onsubmit="return ValidForm()">
+        <div class="form-group"><h3><i class="fas fa-user-plus"></i> Sign Up</h3>
+          <label for="inputName">Name</label> &nbsp; &nbsp; <span class="ErrorName"></span>
+          <input type="text" class="form-control" id="inputName" placeholder="Full Name" name="name" onchange="ValidName()" required>
+        </div>
+        <div class="form-group">
+            <label for="inputID">User ID</label> &nbsp; &nbsp; <span class="ErrorID"></span>
+            <input type="text" class="form-control" id="inputID" placeholder="Input UserID" name="id" onchange="ValidID()" required>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label> &nbsp; &nbsp; <span class="ErrorPassword"></span>
+            <input type="password" class="form-control" name="pwd" onchange="ValidPassword()" required>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Check Password</label> &nbsp; &nbsp; <span class="ErrorPasswordAgain"></span>
+            <input type="password" class="form-control" name="confirmpwd" onchange="ValidPasswordAgain()" required>
+        </div>
+        <div class="form-group">
+          <label for="inputNick">Nickname</label> &nbsp; &nbsp; <span class="ErrorNickname"></span>
+          <input type="text" class="form-control" id="nickname" name="nickname" onchange="ValidNickname()" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Submit</button>
+        <br>
+        <a href="/">
+        <button type="button" class="btn btn-danger">Back</button></a>
+    </form>
+    <!--Sign up validation JavaScript Code-->
+    <script>
+        function ValidForm()
+        {
+            if(ValidName() == true && ValidID() == true && ValidPassword() == true && ValidPasswordAgain() == true && ValidNickname() == true){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function ValidName()
+        {
+            var Name = signup.name.value;
+            
+            if(Name == "" || Name == null)
+            {
+                document.querySelector(".ErrorName").innerHTML = "empty";
+                return false;
+            }
+            
+            else if(!Name[0].match(/[a-zA-Z]/)) 
+            {
+                document.querySelector(".ErrorName").innerHTML = "start character";
+                return false;
+            }
+
+            else if(Name.length <= 5)
+            {
+                document.querySelector(".ErrorName").innerHTML = "at least 6";
+                return false;
+            }
+            
+            else
+            {
+                document.querySelector(".ErrorName").innerHTML = "Complete";
+                return true;
+            }
+        }
+
+        function ValidID()
+        {
+            var ID = signup.id.value;
+            
+            if(ID != "" || ID != null)
+                {
+                    document.querySelector('.ErrorID').innerHTML = "Complete";
+                    return true;
+                }
+        }
+
+        function ValidPassword()
+        {
+            var password = signup.pwd.value;
+
+            if(password == "" || password == null)
+            {
+                document.querySelector(".ErrorPassword").innerHTML = "empty";
+                return false;
+            }
+        
+            else if(!password[0].match(/[a-zA-Z]/))
+            {
+                document.querySelector(".ErrorPassword").innerHTML = "start character";
+                return false;
+            }
+
+            else if(password.length <= 7)
+            {
+                document.querySelector(".ErrorPassword").innerHTML = "at least 8";
+                return false;
+            }
+
+            else if(password.match(/\d+/g) == null)
+            {
+                document.querySelector(".ErrorPassword").innerHTML ="put number"; 
+                return false;
+            }
+            
+            else if(!password.match('.*[A-Z]'))
+            {
+                document.querySelector(".ErrorPassword").innerHTML = "put Uppercase";
+                return false;
+            }
+                
+            else
+            {
+                document.querySelector(".ErrorPassword").innerHTML = "Complete";
+                return true;
+            }
+        }
+
+        function ValidPasswordAgain()
+        {
+            var password1 = signup.pwd.value;
+            var password2 = signup.confirmpwd.value;
+            
+            if(password1 == "" || password2 == "")
+            {
+                document.querySelector(".ErrorPasswordAgain").innerHTML = "empty";
+                return false;
+            }
+            
+            else if(password1 != password2)
+                {
+                    document.querySelector('.ErrorPasswordAgain').innerHTML = "Not Match";
+                    return false;
+                }
+            
+            else if(password1 == password2)
+                {
+                    document.querySelector('.ErrorPasswordAgain').innerHTML = "Match";
+                    return true;
+                }
+        }
+
+        function ValidNickname()
+        {
+            var Nick = signup.nickname.value;
+            
+            if(Nick != "" || Nick != null)
+                {
+                    document.querySelector('.ErrorNickname').innerHTML = "Complete";
+                    return true;
+                }
+        }
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SIGNUP</title>
+    <link rel="stylesheet" href="design1.css">
+</head>
+<body>
+    <h1>S I G N U P</h1>
+    <form action="/signup/success" method="post">
+        <p>NAME : &nbsp;
+            <input type="text" placeholder="Input Name" name="name">
+        </p>
+        <p>ID : &nbsp;
+            <input type="text" placeholder="Input ID" name="id">
+        </p>
+        <p>PASSWORD : &nbsp;
+            <input type="password" placeholder="Input Password" name="pwd">
+        </p>
+        <p>NICKNAME : &nbsp;
+            <input type="text" placeholder="Input Nickname" name="nickname">
+        </p>
+        <p>
+            <input type="submit" value="SIGNUP" class="loginbtn">
+        </p>
+        <p>
+            <a href="/">
+                <input type="button" value="BACK" class="loginbtn">
+            </a>
+        </p>
+    </form>
+</body>
+</html> -->
