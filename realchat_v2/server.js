@@ -21,10 +21,10 @@ var mysql = require('mysql');
 // clearmysql information in heroku 
 // To connect database (mySQL)
 var conn = mysql.createConnection({
-    host : 'us-cdbr-iron-east-04.cleardb.net',
-    user : 'bb7619d1a2d2a9',
-    password : '366b4056',
-    database : 'heroku_5c11217a00e23b5'
+    host : 'host',
+    user : 'user',
+    password : 'password',
+    database : 'database'
 });
 
 conn.connect();
