@@ -10,6 +10,12 @@ body{
        background-color: #EBF5FB;
        padding-bottom: 15px;
    }
+   @media screen and (min-width: 1024px){
+    .signup{
+     height: 50vh;
+     margin-top:10vh;
+    }
+    }
    #success-section h1{
     color: #34495E;  
    }
