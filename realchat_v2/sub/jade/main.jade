@@ -1,0 +1,80 @@
+doctype html
+//
+  ReaclChat version 2.0 - main.jade
+  Sungjun Hong and Yuseon Kang
+  Start: 2018-07-18
+  Finish: 2018-07-29
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-with, initial-scale=1, shrink-to-fit=no')
+    // FontAwesome Link
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.0.13/css/all.css', integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp', crossorigin='anonymous')
+    // Bootstrap core CSS
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css', integrity='sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B', crossorigin='anonymous')
+    // Script
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js')
+    // custom styles for this template
+    link(href='/css/main.css', rel='stylesheet')
+    title RealChat
+  body
+    header
+      nav.navbar.fixed-top.navbar-expand-sm.bg-dark.navbar-dark
+        a.navbar-brand(href='#main-section') RealChat
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='#about-section') About
+          li.nav-item
+            a.nav-link(href='/login') Login
+          li.nav-item
+            a.nav-link(href='#contact-section') Contact
+    section#main-section
+      .container
+        .text-center
+          h2
+            i.fas.fa-asterisk.fa-spin
+          h1 Welcome to Real Chat World
+          h5 We can connect with people beyond the world
+    section#about-section
+      .container
+        h1 About us
+        .intro
+          p
+            | Hi, We like learning, coding, creating something. This web application is the first one. We are studying in Seneca College in Toronto so that we will be web developer.
+          p
+            | This appication is made by 
+            em HTML, CSS, JavaScript Basics
+            |  as well as 
+            em soket.io, Node.js, MySQL(Database)
+            | . We used 
+            em Heroku
+            | ,which is cloud application platform, for server.
+    section#contact-section
+      .container
+        h1 Contact us
+        .row
+          .col-6
+            .row
+              .col-4
+                a#profile-link.contact-info(href='https://github.com/Cool-Hongsi', name='github')
+                  i.fab.fa-github
+                  |  Sungjun Hong
+              .col-4
+                a#profile-link.contact-info(href='https://github.com/emma-kang', name='github')
+                  i.fab.fa-github
+                  |  Yuseon Kang
+          .col-6.contact-form
+            form(action='mailto:emma140626@gmail.com', method='post', enctype='text/plain')
+              .form-row
+                .form-group.col-md-6
+                  input#inputName.form-control(type='text', placeholder='Name')
+                .form-group.col-md-6
+                  input#inputEmail.form-control(type='email', placeholder='Email')
+              .form-group
+                textarea#message.form-control(rows='7', placeholder='Message')
+              button.btn.btn-dark(type='submit') Send
+    footer.text-center
+      br
+      p © Created by Sungjun & Yuseon

@@ -1,0 +1,111 @@
+<-- 
+  ReaclChat version 2.0 - startchat.html
+  Sungjun Hong and Yuseon Kang
+  Start: 2018-07-18
+  Finish: 2018-07-29
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="realchat">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Convergence" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+                
+        <title>Real-Chat World</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/chat.css" rel="stylesheet">
+
+        <style>
+        #contentWrap{
+        display:none;
+        }
+        </style>
+    </head>
+                
+    <body>
+        <div class="form-group">
+            <div id="nickWrap"> <!-- username -->
+               <h2>Shoot the breeze</h2>
+                <div class="input-nickname">
+                   <label for="nickname"><i class="fas fa-user"></i> Enter a username: </label>
+                    <form id="setNick">
+                        <input size="34" id="nickname" />
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
+                    </div>
+                    <p id="nickError"></p>
+            </div>
+        </div>
+        <div id="contentWrap" class="container"> <!-- chatting -->
+            <div class="row">
+            <div class="chat col-md-8">
+            <div id="chatWrap">
+                <div class="form-group">
+                    <textarea id="chat" class="form-control" row="10" readonly></textarea>
+                </div>
+                <form id="send-message">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-comment"></i></span>
+                        </div>
+                        <input type="text" placeholder="  Message" id="m" aria-label="msg" aria-describedby="basic-addon1"></input>
+                        <button class="btn btn-secondary chat-msg" type="submit" value="send">Send</button>
+                    </div>    
+                </form>
+            </div></div>
+            <div class="user-container col-md-4">
+                <div class="online-usr">
+                    <h4><i class="fas fa-spinner fa-spin"></i> Online Users</h4>
+                <div id="users"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+        $(function(){
+        var socket = io();
+        $('#setNick').on('submit', function(e){
+        e.preventDefault();
+        socket.emit('new user', $('#nickname').val(), function(data){
+        if(data){
+            $('#nickWrap').hide();
+            $('#contentWrap').show();
+        }
+        else{
+            $('#nickError').html('That username is already taken! Try Again!');
+        }
+        })
+        $('#nickname').val('');
+        });
+                                
+        socket.on('usernames', function(data){
+        var output_username = '';
+        for(var i=0; i<data.length; i++){
+            output_username += `<i class="fas fa-child"></i> ` + data[i] + `<br>`;
+         }
+        $('#users').html(output_username);
+        });
+                            
+        $('#send-message').on('submit', function(e){
+        e.preventDefault();
+        socket.emit('send message', $('#m').val());
+        $('#m').val('');
+        });
+                
+        socket.on('new message', function(data){
+        $('#chat').append(data.nick + ' : ' + data.msg + '\n');
+        $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        })
+        })
+        </script>
+    </body>
+</html>

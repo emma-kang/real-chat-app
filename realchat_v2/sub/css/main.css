@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Markazi+Text|Open+Sans');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.nav-item {
+    display: inline-flex;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+#main-section{
+    max-height: 100vh;
+    height: 100vh;
+    padding-top: 45vh;
+    background-color: #F4F5F2;
+}
+#about-section{
+    padding-top: 45vh;
+    height: 100vh;
+    background-color: #504F52;
+    color: whitesmoke;
+}
+#contact-section{
+    padding-top: 25vh;
+    height: 100vh;
+}
+.login-form{
+    background-color: #EBEDEF;
+    color: #273746;
+    max-width: 400px;
+    width: 380px;
+    height: 400px;
+    padding-top: 30px;
+    box-shadow: 10px 10px;
+}
+h1, h2 {
+    font-family: 'Markazi Text', serif;
+}
+.contact-form{
+    border-radius: 15px;
+    height: 18rem;
+    padding-top: 1.5rem;
+    background-color: #D7D8DB;
+}
+.contact-form input, .contact-form textarea{
+    background-color: #FEFFFC;
+}
+.contact-form button{
+    margin-left: 87%;
+}
+#contact-section i{
+    font-size: 20px;
+}
+.form{
+    padding-top: 5%;
+    height: 100vh;
+    background: linear-gradient(30deg, #EBF5FB, #476777);
+}
+.login-form h2{
+    padding-bottom: 30px;
+}
+.signup-link{
+    text-align: center;
+    margin-top: 50px;
+    color: grey;
+}
+a{
+    text-decoration: none;
+    color: #34495E;
+}
+a:hover{
+    color: #E54C4C;
+    transition: color, 0.5s;
+    text-decoration-line: none;
+}
+@media screen and (max-width: 425px){ 
+ /* for mobile */
+    .login-form{
+        max-width: 320px;
+        height: 350px;
+    }
+    .form{
+        padding-top: 20%;
+    }
+    .signup-link{
+        
+        font-size: 15px;
+    }
+}
+hr{
+    background-color: #273746;
+    height: 1px;
+}
+.signup-form{
+    background-color: #EBEDEF;
+    color: #273746;
+    max-width: 600px;
+    width: 600px;
+    height: 600px;
+    padding-top: 20px;
+    box-shadow: 10px 10px;
+}
+button[type="submit"]{
+    margin-top: 20px;
+}
+.back-link{
+    margin-top: 20px;
+    text-align: right;
+    color: black;
+}
+small{
+    text-align: right;
+}
+label{
+    margin-bottom: 0;
+}
