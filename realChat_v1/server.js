@@ -227,8 +227,3 @@ io.on('connection', function(socket){
 server.listen(port, () => { // never app.listen
     console.log(`Express http server listening on ${port}`);
 });
-
-// CHANGE THE APP IN HEROKU
-// PS C:\Users\hongs\dev\js\server_side_javascript\RealChat> git remote rm heroku
-// PS C:\Users\hongs\dev\js\server_side_javascript\RealChat> heroku git:remote -a fast-spire-12846 (new app name)
-// fatal: 'heroku' does not appear to be a git repository
